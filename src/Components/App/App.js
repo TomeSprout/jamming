@@ -51,12 +51,20 @@ export default class App extends React.Component {
 					id     : 6,
 				},
 			],
-		};
+		}
+
+		this.addTrack = this.addTrack.bind(this);
 	}
 
-  addTrack() {
+	addTrack (track) {
+		let listOfTracks = this.state.playlistTracks;
+		if (listOfTracks.find((currTrack) => currTrack.id === track.id)) {
+			return;
+		}
 
-  }
+		listOfTracks.push(track);
+		this.setState({ playlistTracks: listOfTracks });
+	}
 
 	render () {
 		return (
