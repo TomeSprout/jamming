@@ -1,4 +1,5 @@
 import React from 'react';
+import Playlist from '../Playlist/Playlist';
 import './Track.css';
 
 export default class Track extends React.Component {
@@ -9,6 +10,10 @@ export default class Track extends React.Component {
 		else {
 			return <button className="Track-action"> + </button>;
 		}
+	}
+
+	addTrack() {
+		this.props.onAdd(this.props.track);
 	}
 
 	render () {
